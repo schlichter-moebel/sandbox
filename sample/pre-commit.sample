@@ -1,0 +1,42 @@
+#!/bin/sh
+
+for file in ./database/*.xml;
+do
+	fname=$(basename "$file")
+done;
+
+IFS="."
+set -- $fname
+
+liquibase --changeLogFile=./database/db.changelog-0.$(($3+1)).0.xml --url=jdbc:mysql://localhost:3306/simple --username=root diffChangeLog  --referenceUrl=jdbc:mysql://localhost:3306/simple2 --referenceUsername=root
+
+row=0
+grep changeSet database/db.changelog-0.$(($3+1)).0.xml
+
+if [ $? -ne 0 ];
+    then rm -f database/db.changelog-0.$(($3+1)).0.xml
+    else
+        if [ "$fname" == 'db.baseline-schema.xml' ];
+            then diff database/db.baseline-schema.xml database/db.changelog-0.$(($3+1)).0.xml > test.txt
+            else diff database/db.changelog-0.$3.0.xml database/db.changelog-0.$(($3+1)).0.xml > test.txt
+        fi
+
+        while read line
+        do
+            if [[ "$line" != *changeSet* ]] && [[ "$line" != *---* ]] && [[ "$line" != *3c3* ]];
+                then row=1
+            fi
+        done < test.txt
+
+        if [ "$row" = 1 ];
+            then
+                git add ./database/db.changelog-0.$(($3+1)).0.xml
+				liquibase --changeLogFile=./database/db.changelog-0.$(($3+1)).0.xml changelogSync
+            else
+                rm -f database/db.changelog-0.$(($3+1)).0.xml
+        fi
+
+        rm -f test.txt
+fi
+
+exit 0

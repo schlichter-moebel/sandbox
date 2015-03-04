@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for file in ./database/*.xml;
+do
+	fname=$(basename "$file")
+done;
+
+liquibase --changeLogFile=./database/$fname migrate

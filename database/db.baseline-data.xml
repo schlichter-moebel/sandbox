@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+    <changeSet author="Vitali (generated)" id="1425389053342-1">
+        <insert tableName="posts">
+            <column name="id" valueNumeric="1"/>
+            <column name="title" value="Hello World"/>
+            <column name="slug" value=""/>
+            <column name="text" value="Hello World!&#13;&#10;&#13;&#10;This is the first post."/>
+            <column name="created" valueDate="2015-02-18 14:04:37.0"/>
+            <column name="author" valueNumeric="1"/>
+            <column name="status" value="published"/>
+        </insert>
+        <insert tableName="posts">
+            <column name="id" valueNumeric="5"/>
+            <column name="title" value="Welcome to Dropplets"/>
+            <column name="slug" value=""/>
+            <column name="text" value="In a flooded selection of overly complex solutions, Dropplets has been created in order to deliver a much needed alternative. There is something to be said about true simplicity in the design, development and management of a blog. By eliminating all of the unnecessary elements found in typical solutions, Dropplets can focus on pure design, typography and usability. Welcome to an easier way to blog.&quot;;"/>
+            <column name="created" valueDate="2015-02-18 14:04:37.0"/>
+            <column name="author" valueNumeric="1"/>
+            <column name="status" value="published"/>
+        </insert>
+        <insert tableName="posts">
+            <column name="id" valueNumeric="6"/>
+            <column name="title" value="PrestaShop"/>
+            <column name="slug" value=""/>
+            <column name="text" value="About this repository&#13;&#10;This repository contains the latest version of PrestaShop: version 1.6. You can learn more about the new features of this version on the progress page.&#13;&#10;&#13;&#10;Clicking the “Download ZIP” button from the root of this repository will download the current state of PrestaShop 1.6 — a branch that is in active development, and ready for production use. Note that the ZIP file will not contain the default modules: you need to make a recursive clone using Git in order to download these files too. See CONTRIBUTING.md for more information about using Git."/>
+            <column name="created" valueDate="2015-02-18 14:04:37.0"/>
+            <column name="author" valueNumeric="1"/>
+            <column name="status" value="published"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

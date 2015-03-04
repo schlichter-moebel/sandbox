@@ -1,0 +1,19 @@
+#Liquibase.properties
+
+driver: com.mysql.jdbc.Driver
+url: jdbc:mysql://localhost:3306/simple
+username: root
+password:
+
+# default changelog to use, relative to classpath
+changeLogFile: db.changelog.xml
+
+### DIFF params ###
+#referenceUrl: jdbc:mysql://localhost:3306/anchor
+#referenceUsername: root
+#referencePassword:
+
+### DIFF params for XML Driver
+#referenceDriver: jstels.jdbc.xml.XMLDriver2
+#classpath: xmldriver.jar
+#referenceUrl: jdbc:jstels:xml:schema.xml
