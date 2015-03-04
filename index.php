@@ -4,12 +4,12 @@ include 'config.php';
 
 
 if (!mysql_connect($config['hostname'], $config['username'], $config['password'])) die('Verbindung schlug fehl: ' . mysql_error());
-
-
 mysql_select_db($config['database']);
+
 $result = mysql_query("SELECT * FROM posts");
 $num_rows = mysql_num_rows($result);
 $blog_twitter = "dropplets";
+mysql_close();
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ $blog_twitter = "dropplets";
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'
     </head>
     <body>
+        <a href="new.php">New Post</a>
             <?php for($i=0;$i<$num_rows;$i++):
                 $article = mysql_fetch_object($result);
             ?>
