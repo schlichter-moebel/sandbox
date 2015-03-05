@@ -61,7 +61,10 @@ else
                 <li><label>Text</label></li>
                 <li><textarea name="text" rows="5" cols="40"></textarea></li>
              </ul>
-             <input type="submit" value="Senden">
+            <ul>
+                <li><input type="submit" value="Senden"></li>
+            </ul>
+
         </form>
         </div>
     </div>
