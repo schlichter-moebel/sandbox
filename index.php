@@ -33,7 +33,7 @@ $blog_twitter = "dropplets";
                     </div>
                     <ul>
                         <li><?php echo $article->title; ?></li>
-                        <li><a href="mailto:<?php echo $article->email; ?>?subject=Hello"><?php echo $article->email; ?></a></li>
+                        <li><a href="mailto:<?php echo $article->email; ?>?subject=Hello Welt"><?php echo $article->email; ?></a></li>
                         <li><a href="http://twitter.com/<?php echo $blog_twitter; ?>">&#64;<?php echo $blog_twitter; ?></a></li>
                         <li></li>
                     </ul>
